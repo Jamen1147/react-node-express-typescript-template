@@ -1,0 +1,5 @@
+{
+  "*.{js,jsx,ts,tsx,md,html,css,scss,json}": "prettier --write",
+  "*.{js,ts,tsx}": "eslint --cache --fix",
+  "*.{css,scss}": "yarn style:lint:client"
+}
