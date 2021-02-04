@@ -1,10 +1,17 @@
 import { Response, NextFunction } from 'express';
 
+export type ApiResponse<T, M> = {
+  ok: boolean;
+  data: T | null;
+  message: M | null;
+  status: number;
+};
+
 const response = <T, M>(
   status: number,
   data: T | null = null,
   message?: M
-) => ({
+): ApiResponse<T, M> => ({
   ok: status.toString().startsWith('2'),
   data,
   message: message || null,

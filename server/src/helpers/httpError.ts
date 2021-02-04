@@ -4,6 +4,7 @@ export class HttpError {
     Unthorized: 401,
     Forbidden: 403,
     NotFound: 404,
+    Conflict: 409,
   };
 
   message: string;
@@ -21,3 +22,4 @@ export class BadRequest extends HttpError {}
 export class Unthorized extends HttpError {}
 export class Forbidden extends HttpError {}
 export class NotFound extends HttpError {}
+export class Conflict extends HttpError {}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=development PORT=3300 && mocha -r ts-node/register 'tests/**/*.test.ts' --exit",
+    "test": "export NODE_ENV=test PORT=3300 && mocha --timeout 5000 -r ts-node/register 'tests/**/*.test.ts' --exit",
     "prod": "node ./build/app.js",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
@@ -14,8 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "config": "^3.3.3",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
     "swagger-jsdoc": "^6.0.1",
     "swagger-ui-express": "^4.1.6",
     "winston": "^3.3.3"
