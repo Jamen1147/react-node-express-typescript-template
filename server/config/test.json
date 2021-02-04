@@ -5,7 +5,7 @@
   "db": {
     "user": "jamen-root",
     "password": "keef0cot@nolt2SQEP",
-    "db": "template"
+    "db": "template-testing"
   },
   "jwt": {
     "secret": "secret",
