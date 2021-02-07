@@ -4,6 +4,11 @@
   "private": true,
   "devDependencies": {
     "@craco/craco": "^6.1.0",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/node-logger": "^6.1.17",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.17",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/react-hooks": "^5.0.3",
@@ -57,7 +62,9 @@
     "eject": "react-scripts eject",
     "typecheck": "tsc --noEmit",
     "style:lint": "stylelint '**/*.scss' --fix",
-    "es:lint": "eslint './src/**/*.{ts,tsx}' --fix"
+    "es:lint": "eslint './src/**/*.{ts,tsx}' --fix",
+    "storybook": "start-storybook -p 6006 -c .storybook -s public",
+    "build-storybook": "build-storybook -c .storybook -s public"
   },
   "eslintConfig": {
     "extends": [
