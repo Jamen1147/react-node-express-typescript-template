@@ -3,12 +3,13 @@
     "port": 5000
   },
   "db": {
-    "user": "jamen-root",
-    "password": "keef0cot@nolt2SQEP",
+    "user": "mongouser",
+    "password": "mongopassword",
     "db": "template-testing"
   },
   "jwt": {
     "secret": "secret",
-    "expiredIn": 3600
+    "expiredIn": "1h",
+    "issuer": "fullstack-template.com"
   }
 }
