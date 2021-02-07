@@ -1,0 +1,77 @@
+@use '../../../styles/variables.scss' as var;
+
+$spinner-size: (
+  large: 80px,
+  medium: 40px,
+  small: 16px,
+  xsmall: 10px,
+);
+
+$spinner-color: (
+  primary: var.$color-blue,
+  secondary: var.$color-grey,
+  inverted: var.$color-white,
+);
+
+@mixin spinner-color($size) {
+  @each $name, $color in $spinner-color {
+    &.#{$name} {
+      &:after {
+        box-shadow: $size/25 $size/25 $size/25 $color;
+      }
+    }
+  }
+}
+
+@mixin spinner-size {
+  @each $name, $size in $spinner-size {
+    &.#{$name} {
+      height: $size;
+      width: $size;
+      @include spinner-color($size);
+    }
+  }
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+
+  .spinner {
+    animation: loading-spin 1s infinite linear;
+    background-color: transparent;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+
+    @include spinner-size();
+
+    &:after {
+      border: 5px solid transparent;
+      border-radius: 100%;
+      bottom: 0;
+      box-sizing: border-box;
+      content: '';
+      display: inline-block;
+      height: 110%;
+      left: -5%;
+      position: absolute;
+      right: 0;
+      top: -5%;
+      width: 110%;
+    }
+  }
+
+  @keyframes loading-spin {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+}

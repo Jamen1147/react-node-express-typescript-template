@@ -48,11 +48,7 @@ $grid-gutter-width: map-get(
 );
 
 $grid-row-columns: 6 !default;
-// enabling this will give capability to use css class directly without providing
-// mixins on the classnames.
 $enable-grid-classes: false !default;
-
-// Brand Colors
 
 // Typography
 $font-regular: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -61,15 +57,17 @@ $font-medium: $font-regular;
 $font-bold: $font-regular;
 
 // html font size
-$font-size-html: 10px;
+$font-size-html: 16px;
 $line-height-base: 1.35;
-
 $font-size-base: 14px;
 
-// Brand Colors
-$brand-white: #ffffff;
-$brand-black: #000000;
-$brand-grey: #a5a6ac;
-$brand-dark-grey: #2f2f2f;
-$brand-black-text: #222222;
-$brand-orange: #d44633;
+// Colors
+$color-blue: #00305e;
+$color-red: #e22329;
+$color-white: #ffffff;
+$color-black: #292529;
+$color-grey: #a8b2b9;
+$color-lightgrey: #e1e7eb;
+
+$color-primary: $color-blue;
+$color-secondary: $color-grey;
