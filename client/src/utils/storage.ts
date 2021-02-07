@@ -14,6 +14,10 @@ class StorageHelper {
     );
   }
 
+  private removeItem(key: string) {
+    localStorage.removeItem(key);
+  }
+
   clear() {
     localStorage.clear();
   }
@@ -23,7 +27,11 @@ class StorageHelper {
   }
 
   set token(value: string | null) {
-    this.setItem('token', value);
+    if (value === null) {
+      this.removeItem('token');
+    } else {
+      this.setItem('token', value);
+    }
   }
 }
 

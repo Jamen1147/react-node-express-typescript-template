@@ -3,6 +3,7 @@ import userService from '../../api/services/user';
 import { ILoginParams } from '../../api/types/auth';
 import { IRegisterParams } from '../../api/types/user';
 import storage from '../../utils/storage';
+import history from '../history';
 import { Thunk } from '../store';
 import { UserActions } from './type';
 
@@ -38,6 +39,8 @@ export const getMe = (): Thunk<UserActions> => async (dispatch) => {
   const result = await userService.getMe();
 
   if (result.hasError) {
+    storage.token = null;
+
     return dispatch({
       type: 'USER_ME_ERROR',
       payload: result.error || 'Get Me Failed',

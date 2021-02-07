@@ -96,6 +96,6 @@ export type UserActions =
 export interface UserState {
   user: IUser | null;
   loggedIn: boolean;
-  loading: boolean;
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }

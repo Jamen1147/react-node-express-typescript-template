@@ -4,7 +4,7 @@ import { UserActions, UserState } from './type';
 const initialState: UserState = {
   user: null,
   loggedIn: false,
-  loading: false,
+  status: 'idle',
   error: null,
 };
 
@@ -13,20 +13,13 @@ const reducer: Reducer<UserState | undefined, UserActions> = (
   action
 ) => {
   switch (action.type) {
-    case 'USER_ME_SUCCESS':
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        user: action.payload,
-      };
     case 'USER_REGISTER_REQUEST':
     case 'USER_ME_REQUEST':
     case 'USER_UNREGISTER_REQUEST':
     case 'USER_LOGIN_REQUEST':
       return {
         ...state,
-        loading: true,
+        status: 'loading',
       };
     case 'USER_REGISTER_ERROR':
     case 'USER_ME_ERROR':
@@ -34,13 +27,14 @@ const reducer: Reducer<UserState | undefined, UserActions> = (
     case 'USER_LOGIN_ERROR':
       return {
         ...state,
-        loading: false,
+        status: 'failed',
         error: action.payload,
       };
+    case 'USER_ME_SUCCESS':
     case 'USER_REGISTER_SUCCESS':
     case 'USER_LOGIN_SUCCESS':
       return {
-        loading: false,
+        status: 'succeeded',
         error: null,
         user: action.payload,
         loggedIn: true,

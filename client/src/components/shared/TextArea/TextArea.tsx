@@ -7,10 +7,7 @@ export type TTextAreaProps = Pick<
   TInputStyleProps,
   'error' | 'errorMessage' | 'label' | 'containerClassName' | 'id'
 > &
-  Pick<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    'className' | 'onChange' | 'value' | 'placeholder'
-  >;
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const TextArea = ({
   error,

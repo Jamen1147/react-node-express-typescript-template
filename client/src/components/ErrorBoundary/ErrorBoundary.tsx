@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import * as React from 'react';
 import env from '../../env';
+import ErrorPage from '../ErrorPage';
 
 export default class ErrorBoundary extends React.Component<
   {},
@@ -31,7 +32,7 @@ export default class ErrorBoundary extends React.Component<
     const { children } = this.props;
 
     if (hasError) {
-      return <div>Unexpected error</div>;
+      return <ErrorPage />;
     }
 
     return children;

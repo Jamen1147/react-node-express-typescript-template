@@ -2,10 +2,7 @@ import React from 'react';
 import InputStyle, { TInputStyleProps } from './InputStyle';
 
 export type TInputProps = TInputStyleProps &
-  Pick<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'className' | 'onChange' | 'value' | 'placeholder'
-  >;
+  React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = ({
   error,

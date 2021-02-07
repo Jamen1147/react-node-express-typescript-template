@@ -52,9 +52,9 @@ export default abstract class BaseApi {
           : this.api[method](url, data, configs);
 
       const response = await request;
-      result = new Response<T>(response.data);
+      result = new Response<T>(response.data.data);
     } catch (error) {
-      result = new Response(error.response, error.message);
+      result = new Response(error.response, error.response.data.message);
     }
 
     return result;
