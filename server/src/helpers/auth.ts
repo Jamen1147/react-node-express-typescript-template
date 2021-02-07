@@ -2,20 +2,23 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 import crypt from 'bcryptjs';
 
+export type TokenPayload = {
+  user: {
+    id: string;
+  };
+};
+
 export default class AuthHelper {
-  static async sign(id: string, expiresIn = config.jwt.expiredIn) {
+  static async sign(payload: TokenPayload, expiresIn = config.jwt.expiredIn) {
     const token = await new Promise<string>((resolve, reject) => {
       jwt.sign(
-        {
-          user: {
-            id,
-          },
-        },
+        payload,
         config.jwt.secret,
-        { expiresIn },
+        { expiresIn, issuer: config.jwt.issuer },
         (err, token) => {
           if (err) reject(err);
           if (token) {
+            console.log(token);
             resolve(token);
           } else {
             reject('Signing is unsuccessful');
@@ -36,7 +39,7 @@ export default class AuthHelper {
     return await crypt.compare(password, hashed);
   }
 
-  static veryifyToken(token: string) {
-    return jwt.verify(token, config.jwt.secret) as { user: { id: string } };
+  static verify(token: string) {
+    return jwt.verify(token, config.jwt.secret) as TokenPayload;
   }
 }

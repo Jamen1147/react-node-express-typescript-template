@@ -8,7 +8,7 @@ const authorize = (req: Request, res: Response, next: NextFunction) => {
     if (!token) {
       throw new Unthorized('Unthorized');
     }
-    const decoded = AuthHelper.veryifyToken(token.split('Bearer ')[1]);
+    const decoded = AuthHelper.verify(token.split('Bearer ')[1]);
     req.user = decoded.user;
     next();
   } catch (error) {

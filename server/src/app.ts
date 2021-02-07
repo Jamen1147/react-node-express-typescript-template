@@ -11,6 +11,7 @@ import { NotFound } from './helpers/httpError';
 import userRouter from './routes/user';
 import valueRouter from './routes/value';
 import weatherRouter from './routes/waether';
+import authRouter from './routes/auth';
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/swagger', ...swaggerSetups);
 app.use('/api/v1/value', valueRouter);
 app.use('/api/v1/weather', weatherRouter);
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/auth', authRouter);
 
 app.use((req, res, next) => next(new NotFound('Not Found')));
 

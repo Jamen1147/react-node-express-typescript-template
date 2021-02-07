@@ -12,6 +12,7 @@ interface IExtendedConfig {
   jwt: {
     secret: string;
     expiredIn: number;
+    issuer: string;
   };
 }
 

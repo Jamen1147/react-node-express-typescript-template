@@ -1,12 +1,9 @@
 import { Router, Request } from 'express';
 import authorize from '../../middlewares/authorize';
-import UserService, {
-  TLoginParams,
-  TRegisterParams,
-} from '../../services/user';
-import { loginValidations, registerValidations } from './validations';
+import services from '../../services';
+import { TRegisterParams } from '../../services/user';
+import { registerValidations } from './validations';
 
-const userService = new UserService();
 const router = Router();
 
 /**
@@ -18,43 +15,26 @@ const router = Router();
  *       - User
  */
 router.get('/me', authorize, (req, res, next) => {
-  userService.getCurrentUser(req.user!.id).then(res.success).catch(next);
+  services.user.getCurrentUser(req.user.id).then(res.success).catch(next);
 });
 
 /**
  * @swagger
- * api/v1/user/register:
+ * api/v1/user:
  *   post:
  *     summary: Register a user
  *     tags:
  *       - User
  */
 router.post(
-  '/register',
+  '/',
   ...registerValidations,
   (req: Request<any, any, TRegisterParams>, res, next) => {
     const { email, password, name } = req.body;
-    userService
+    services.user
       .register({ email, password, name })
       .then(res.success)
       .catch(next);
-  }
-);
-
-/**
- * @swagger
- * api/v1/user/login:
- *   post:
- *     summary: Log a user in
- *     tags:
- *       - User
- */
-router.post(
-  '/login',
-  ...loginValidations,
-  (req: Request<any, any, TLoginParams>, res, next) => {
-    const { email, password } = req.body;
-    userService.login({ email, password }).then(res.success).catch(next);
   }
 );
 
@@ -67,8 +47,8 @@ router.post(
  *       - User
  */
 router.delete('/', authorize, (req, res, next) => {
-  userService
-    .unregister(req.user!.id)
+  services.user
+    .unregister(req.user.id)
     .then(() => res.success(null))
     .catch(next);
 });
