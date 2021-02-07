@@ -12,7 +12,6 @@ const authorize = (req: Request, res: Response, next: NextFunction) => {
     req.user = decoded.user;
     next();
   } catch (error) {
-    console.log('failed?', error);
     next(new Unthorized(error));
   }
 };

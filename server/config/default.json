@@ -3,8 +3,8 @@
     "port": 5000
   },
   "db": {
-    "user": "mongouser",
-    "password": "mongopassword",
+    "user": "jamen-root",
+    "password": "keef0cot@nolt2SQEP",
     "db": "template"
   },
   "jwt": {

@@ -1,6 +1,7 @@
 import express from 'express';
 import config from 'config';
 import swaggerSetups from './swagger';
+import cors from 'cors';
 
 import responseWrapper from './middlewares/responseWrapper';
 import errorHandler from './middlewares/errorHandler';
@@ -16,6 +17,11 @@ import authRouter from './routes/auth';
 const app = express();
 
 // Express Configs
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use(express.json());
 app.use(responseWrapper);
 

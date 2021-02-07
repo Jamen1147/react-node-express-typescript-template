@@ -18,7 +18,6 @@ export default class AuthHelper {
         (err, token) => {
           if (err) reject(err);
           if (token) {
-            console.log(token);
             resolve(token);
           } else {
             reject('Signing is unsuccessful');
