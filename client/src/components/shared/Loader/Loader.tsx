@@ -1,13 +1,18 @@
+import React from 'react';
 import cx from 'classnames';
 import styles from './Loader.module.scss';
 
-type TProps = {
+export type TLoaderProps = {
   size?: 'large' | 'medium' | 'small' | 'xsmall';
   color?: 'primary' | 'secondary' | 'inverted';
   className?: string;
 };
 
-const Loader = ({ size = 'medium', color = 'primary', className }: TProps) => (
+const Loader = ({
+  size = 'medium',
+  color = 'primary',
+  className,
+}: TLoaderProps) => (
   <div className={cx(styles.loader, className)}>
     <div
       className={cx(

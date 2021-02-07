@@ -1,12 +1,16 @@
+import React from 'react';
 import cx from 'classnames';
 import styles from './TextArea.module.scss';
 import InputStyle, { TInputStyleProps } from '../Input/InputStyle';
 
-export type TProps = Pick<
+export type TTextAreaProps = Pick<
   TInputStyleProps,
-  'error' | 'errorMessage' | 'label' | 'containerClassName'
+  'error' | 'errorMessage' | 'label' | 'containerClassName' | 'id'
 > &
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+  Pick<
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    'className' | 'onChange' | 'value' | 'placeholder'
+  >;
 
 const TextArea = ({
   error,
@@ -16,7 +20,7 @@ const TextArea = ({
   id,
   className,
   ...props
-}: TProps) => {
+}: TTextAreaProps) => {
   return (
     <InputStyle
       containerClassName={containerClassName}

@@ -26,6 +26,11 @@
     background-color: v.$color-red;
   }
 
+  svg {
+    height: m.rem(16px);
+    width: m.rem(16px);
+  }
+
   &.text {
     background-color: transparent;
     color: v.$color-black;

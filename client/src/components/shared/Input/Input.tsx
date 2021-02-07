@@ -1,6 +1,11 @@
+import React from 'react';
 import InputStyle, { TInputStyleProps } from './InputStyle';
 
-type TProps = TInputStyleProps & React.InputHTMLAttributes<HTMLInputElement>;
+export type TInputProps = TInputStyleProps &
+  Pick<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'className' | 'onChange' | 'value' | 'placeholder'
+  >;
 
 const Input = ({
   error,
@@ -13,7 +18,7 @@ const Input = ({
   className,
   containerClassName,
   ...props
-}: TProps) => {
+}: TInputProps) => {
   return (
     <InputStyle
       error={error}

@@ -7,6 +7,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import reportWebVitals from './reportWebVitals';
 import history from './stores/history';
 import store from './stores/store';
+import './styles/global.scss';
 
 ReactDOM.render(
   <React.StrictMode>

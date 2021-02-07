@@ -4,7 +4,7 @@ import cx from 'classnames';
 import styles from './Button.module.scss';
 import Loader from '../Loader';
 
-type TProps = {
+export type TButtonProps = {
   block?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -16,7 +16,7 @@ type TProps = {
   'type' | 'className' | 'onClick'
 >;
 
-const Button: React.FC<TProps> = ({
+const Button: React.FC<TButtonProps> = ({
   block,
   disabled,
   loading,

@@ -49,12 +49,12 @@ const InputStyle: React.FC<TInputStyleProps> = ({
             className: cx(icon.props.className, styles.icon),
           })}
 
-        {mapChildren(children, (child) => {
-          return React.cloneElement(child, {
+        {mapChildren(children, (child) =>
+          React.cloneElement(child, {
             className: cx(child.props.className, styles.input),
             id: inputId,
-          });
-        })}
+          })
+        )}
 
         {loading && (
           <div className={styles.load}>
