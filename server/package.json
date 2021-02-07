@@ -8,7 +8,8 @@
     "prod": "node ./build/app.js",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/app.ts"
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/app.ts",
+    "es:lint": "eslint './src/**/*.{ts,tsx}' --fix"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +38,8 @@
     "@types/supertest": "^2.0.10",
     "@types/swagger-jsdoc": "^6.0.0",
     "@types/swagger-ui-express": "^4.1.2",
+    "eslint": "^7.19.0",
+    "eslint-plugin-node": "^11.1.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
