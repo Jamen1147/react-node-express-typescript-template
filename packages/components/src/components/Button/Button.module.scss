@@ -1,0 +1,90 @@
+@use '@template/common/styles/variables.scss' as v;
+@use '@template/common/styles/mixins.scss' as m;
+
+.button {
+  border: none;
+  border-radius: 5px;
+  color: v.$color-white;
+
+  cursor: pointer;
+  display: inline-block;
+
+  font-size: m.rem(14px);
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+
+  &.primary {
+    background-color: v.$color-primary;
+  }
+
+  &.secondary {
+    background-color: v.$color-secondary;
+  }
+
+  &.danger {
+    background-color: v.$color-red;
+  }
+
+  svg {
+    height: m.rem(16px);
+    width: m.rem(16px);
+  }
+
+  &.text {
+    background-color: transparent;
+    color: v.$color-black;
+    font-weight: bolder;
+    padding: 0 0 !important;
+
+    svg {
+      fill: v.$color-black;
+    }
+
+    &:active {
+      text-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.3);
+    }
+  }
+
+  &.block {
+    width: 100%;
+  }
+
+  &.large {
+    padding: m.rem(10px) m.rem(55px);
+  }
+
+  &.medium {
+    padding: m.rem(10px) m.rem(30px);
+  }
+
+  &.small {
+    padding: m.rem(10px) m.rem(10px);
+  }
+
+  &.hasIcon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    & > * {
+      &:first-child {
+        margin-right: m.rem(15px);
+      }
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+}

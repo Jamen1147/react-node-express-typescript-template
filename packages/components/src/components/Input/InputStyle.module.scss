@@ -1,0 +1,61 @@
+@use '@template/common/styles/variables.scss' as v;
+@use '@template/common/styles/mixins.scss' as m;
+
+.field {
+  .label {
+    color: v.$color-black;
+    display: inline-block;
+    font-size: m.rem(15px);
+    font-weight: 700;
+    margin-bottom: m.rem(15px);
+  }
+
+  .fieldContent {
+    align-items: center;
+    border: 1px solid v.$color-lightgrey;
+    border-radius: 3px;
+    display: flex;
+
+    .icon {
+      fill: v.$color-primary;
+      height: m.rem(16px);
+      margin-left: m.rem(13px);
+      width: m.rem(16px);
+    }
+
+    .input {
+      background: transparent;
+      border: none;
+      flex: 1;
+      font-size: m.rem(13px);
+      padding: m.rem(12px);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .load {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      width: m.rem(50px);
+    }
+
+    &.grey {
+      background: v.$color-lightgrey;
+      border: none;
+    }
+
+    &.error {
+      border: 1px solid v.$color-red;
+    }
+  }
+
+  .errMessage {
+    color: v.$color-red;
+    display: block;
+    font-weight: 500;
+    margin-top: m.rem(10px);
+  }
+}

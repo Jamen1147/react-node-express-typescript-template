@@ -1,0 +1,6 @@
+@use '@template/common/styles/variables.scss' as v;
+
+.textarea {
+  font-family: v.$font-regular;
+  resize: none;
+}

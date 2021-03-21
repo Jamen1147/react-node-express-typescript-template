@@ -1,0 +1,10 @@
+@use './variables.scss' as v;
+
+// export variables to share screen sizes with Javascript
+:export {
+  lg: map-get($map: v.$grid-breakpoints, $key: 'lg');
+  md: map-get($map: v.$grid-breakpoints, $key: 'md');
+  sm: map-get($map: v.$grid-breakpoints, $key: 'sm');
+  xl: map-get($map: v.$grid-breakpoints, $key: 'xl');
+  xs: map-get($map: v.$grid-breakpoints, $key: 'xs');
+}

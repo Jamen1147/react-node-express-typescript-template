@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["packages"],
+  "typeRoots": ["node_modules/@types", "@types"],
+  "types": ["react-app-env"],
+  "baseUrl": "./packages",
+  "paths": {
+    "@template/components": ["components/src"],
+    "@template/common": ["common/*"],
+    "@template/client": ["client/src"],
+  }
+}

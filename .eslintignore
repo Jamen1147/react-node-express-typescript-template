@@ -1,2 +1,5 @@
+packages/**/*.stories.tsx
+packages/**/*.test.tsx
+**/*.d.ts
 build/
-@types/
+dist/
