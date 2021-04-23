@@ -36,7 +36,7 @@ const getOrientation = () => {
   return height > width ? 'portrait' : 'landscape';
 };
 
-const useBreakpoint = (): {
+export const useBreakpoint = (): {
   breakpoint: TBreakpoint;
   orientation: TOrientation;
 } => {
@@ -62,5 +62,3 @@ const useBreakpoint = (): {
     orientation,
   };
 };
-
-export default useBreakpoint;
