@@ -4,11 +4,11 @@ import { Unthorized } from '../helpers/httpError';
 
 const authorize = (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = req.header('Authorization');
+    const { token } = req.cookies as Record<string, string>;
     if (!token) {
       throw new Unthorized('Unthorized');
     }
-    const decoded = AuthHelper.verify(token.split('Bearer ')[1]);
+    const decoded = AuthHelper.verify(token);
     req.user = decoded.user;
     next();
   } catch (error) {

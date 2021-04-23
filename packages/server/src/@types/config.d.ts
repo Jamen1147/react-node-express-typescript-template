@@ -14,6 +14,9 @@ interface IExtendedConfig {
     expiredIn: number;
     issuer: string;
   };
+  cors?: {
+    allow: string | string[];
+  };
 }
 
 declare module 'config' {

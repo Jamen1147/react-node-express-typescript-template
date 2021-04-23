@@ -1,4 +1,5 @@
 import { Response } from 'express';
+import { env } from '../helpers/env';
 import { HttpError } from '../helpers/httpError';
 
 const errorHandler = (
@@ -12,8 +13,8 @@ const errorHandler = (
   }
 
   console.error(error);
-  if (process.env.NODE_ENV === 'development') {
-    return res.fail({ message: error.message, stack: error.stack }, 500);
+  if (env.current === 'development') {
+    return res.fail(`${error.message} -\n${error.stack}`, 500);
   } else {
     return res.fail(error.message, 500);
   }

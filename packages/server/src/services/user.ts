@@ -24,12 +24,7 @@ export default class UserService {
       name,
     });
 
-    const token = await AuthHelper.sign({ user: { id: user.id } });
-
-    return {
-      token,
-      user,
-    };
+    return user;
   }
 
   async unregister(id: string) {

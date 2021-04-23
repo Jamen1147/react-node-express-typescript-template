@@ -1,22 +1,30 @@
-import { Response, NextFunction } from 'express';
+import { Response, NextFunction, CookieOptions } from 'express';
+import { env } from '../helpers/env';
 
-export type ApiResponse<T, M> = {
+export type ApiResponse<T, E> = {
   ok: boolean;
   data: T | null;
-  message: M | null;
+  error: E | null;
   status: number;
 };
 
-const response = <T, M>(
+const response = <T, E>(
   status: number,
   data: T | null = null,
-  message?: M
-): ApiResponse<T, M> => ({
+  error?: E
+): ApiResponse<T, E> => ({
   ok: status.toString().startsWith('2'),
   data,
-  message: message || null,
+  error: error || null,
   status,
 });
+
+const defaultCookieOptions: CookieOptions = {
+  httpOnly: true,
+  sameSite: 'lax',
+  secure: env.current !== 'development',
+  maxAge: 1000 * 60 * 60 * 24 * 7,
+};
 
 const responseWrapper = (_: any, res: Response, next: NextFunction) => {
   res.success = <T>(data: T, code = 200) => {
@@ -26,6 +34,9 @@ const responseWrapper = (_: any, res: Response, next: NextFunction) => {
   res.fail = (error: Record<string, unknown> | string, code = 400) => {
     res.status(code).json(response(code, null, error));
   };
+
+  res.setCookie = (name: string, value: string, options?: CookieOptions) =>
+    res.cookie(name, value, { ...defaultCookieOptions, ...(options || {}) });
 
   next();
 };
