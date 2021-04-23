@@ -1,1 +1,18 @@
-{}
+{
+  "server": {
+    "port": 5000
+  },
+  "db": {
+    "user": "jamen-root",
+    "password": "",
+    "db": "template"
+  },
+  "jwt": {
+    "secret": "secret",
+    "expiredIn": "1h",
+    "issuer": "fullstack-template.com"
+  },
+  "cors": {
+    "allow": []
+  }
+}

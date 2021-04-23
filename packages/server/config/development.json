@@ -3,9 +3,9 @@
     "port": 5000
   },
   "db": {
-    "user": "jamen-root",
-    "password": "keef0cot@nolt2SQEP",
-    "db": "template"
+    "user": "root",
+    "password": "your pass word",
+    "db": "db"
   },
   "jwt": {
     "secret": "secret",
