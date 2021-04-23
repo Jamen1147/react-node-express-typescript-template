@@ -51,4 +51,24 @@ Comes with a simple user authentication and basic UI components
 2. `yarn install`
 3. `yarn start`
 
-For more commands please see `package.json`
+## Available Scripts
+
+### `yarn start`
+
+Runs the client on port `3000` and runs the server on port `5000` at the same time.
+
+### `yarn test`
+
+Runs tests on all packages
+
+### `yarn typecheck`
+
+Runs typecheck on all packages
+
+### `yarn story`
+
+Runs storybook on component package
+
+...
+
+### For more commands please see `package.json`
