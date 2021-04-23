@@ -7,6 +7,5 @@ export interface RegisterParams {
 }
 
 export interface RegisterResponse {
-  token: string;
   user: User;
 }
