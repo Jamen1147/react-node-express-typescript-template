@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import styles from './Button.module.scss';
-import Loader from '../Loader';
+import { Loader } from '../Loader';
 
 export type TButtonProps = {
   block?: boolean;
@@ -10,6 +10,7 @@ export type TButtonProps = {
   size?: 'large' | 'medium' | 'small';
   variant?: 'primary' | 'secondary' | 'danger' | 'text';
   icon?: React.ReactNode;
+  color?: string;
 } & Pick<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   'type' | 'className' | 'onClick'
@@ -23,6 +24,7 @@ const Button: React.FC<TButtonProps> = ({
   variant = 'primary',
   type = 'button',
   icon,
+  color,
   onClick,
   children,
   className,
@@ -44,6 +46,9 @@ const Button: React.FC<TButtonProps> = ({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...(onClick && {
         onClick,
+      })}
+      {...(color && {
+        style: { color },
       })}
     >
       {icon}

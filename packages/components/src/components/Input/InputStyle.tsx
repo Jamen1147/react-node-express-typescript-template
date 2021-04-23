@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { uniqueId } from 'lodash';
 import { mapChildren } from '@template/common/utils/element';
-import Loader from '../Loader';
+import { Loader } from '../Loader';
 
 import styles from './InputStyle.module.scss';
 
