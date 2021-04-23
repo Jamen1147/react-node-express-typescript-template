@@ -32,7 +32,7 @@
     "lodash": "^4.17.20"
   },
   "scripts": {
-    "test": "react-scripts test",
+    "test": "react-scripts test  --watchAll=false --passWithNoTests",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "typecheck": "tsc --noEmit"
