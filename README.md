@@ -1,29 +1,54 @@
-# README #
+# Fullstack Template
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## Typescript + React + Node + Express
 
-### What is this repository for? ###
+Comes with a simple user authentication and basic UI components
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Stack in detail
 
-### How do I get set up? ###
+#### - Tools
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+- [Lerna](https://lerna.js.org/) to manage the monorepo
+- [ESLint](https://eslint.org/) to enforce coding styles
+- [StyleLint](https://stylelint.io/) to enforce css styles
+- [CommitLint](https://commitlint.js.org/#/) to enforce commit message styles
+- [Prettier](https://prettier.io/) to enforce formatting
+- [Husky](https://typicode.github.io/husky/#/) to use git hooks with husky
+- [LintStaged](https://www.npmjs.com/package/lint-staged) to lint codes against staged files
+- [CRA](https://create-react-app.dev/docs/getting-started/) to bootstrap react app initialization
+- [CRACO](https://github.com/gsoft-inc/craco#documentation) to override CRA settings without ejecting the app
+- [StoryBook](https://storybook.js.org/) to make UI components from component package interactive
+- [Swagger](https://github.com/scottie1984/swagger-ui-express) to make APIs from server package interactive
+- & many more ...
 
-### Contribution guidelines ###
+#### - FrontEnd
 
-* Writing tests
-* Code review
-* Other guidelines
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- React hooks & contexts
+- [React hook form](https://react-hook-form.com/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- & many more ...
 
-### Who do I talk to? ###
+#### - Backend
 
-* Repo owner or admin
-* Other community or team contact
+- [TypeScript](https://www.typescriptlang.org/)
+- [NodeJS](https://nodejs.org/en/about/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://www.mongoose.com/)
+- [Mocha](https://mochajs.org/)
+- [PowerAsset](https://github.com/power-assert-js/power-assert)
+- [SuperTest](https://www.npmjs.com/package/supertest)
+- [Nyc](https://www.npmjs.com/package/nyc)
+- & many more ...
+
+## Get Started
+
+**Must have node, yarn, and mongodb installed and setup locally**
+
+1. `clone this repo`
+2. `yarn install`
+3. `yarn start`
+
+For more commands please see `package.json`
