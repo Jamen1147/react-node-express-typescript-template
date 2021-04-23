@@ -1,0 +1,10 @@
+@use '@template/common/styles/variables.scss' as v;
+@use '@template/common/styles/mixins.scss' as m;
+
+.nav {
+  background-color: v.$color-primary;
+  color: v.$color-white;
+  display: flex;
+  justify-content: space-between;
+  padding: m.rem(15px);
+}

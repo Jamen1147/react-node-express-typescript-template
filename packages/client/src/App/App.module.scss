@@ -1,3 +1,5 @@
-.app {
-  font-size: 16px;
+@use '@template/common/styles/mixins.scss' as m;
+
+.main {
+  padding: m.rem(30px) m.rem(150px);
 }

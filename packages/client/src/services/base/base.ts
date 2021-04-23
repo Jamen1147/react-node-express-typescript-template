@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
 import { requestInterceptor } from './interceptors';
-import env from '../../../env';
+import env from '../../env';
 import Response from './response';
 
 const methods = ['get', 'post', 'put', 'delete'] as const;
@@ -54,7 +54,10 @@ export default abstract class BaseApi {
       const response = await request;
       result = new Response<T>(response.data.data);
     } catch (error) {
-      result = new Response(error.response, error.response.data.message);
+      result = new Response(
+        error.response,
+        error.response?.data?.error?.message || 'Request Failed Unexpectedly'
+      );
     }
 
     return result;
