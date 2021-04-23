@@ -2,7 +2,7 @@
   "name": "@template/common",
   "version": "0.1.0",
   "private": true,
-  "main": ".",
+  "main": "./index.ts",
   "peerDependencies": {
     "@types/node": "^14.14.25",
     "@types/react": "^17.0.1",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "eslint": "eslint './src/**/*.{ts,tsx}' --fix",
+    "eslint": "eslint './**/*.{ts,tsx}' --fix",
     "stylelint": "stylelint '**/*.scss' --fix",
     "typecheck": "tsc --noEmit"
   }
