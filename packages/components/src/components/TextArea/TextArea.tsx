@@ -1,10 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
 import styles from './TextArea.module.scss';
-import InputStyle, { TInputStyleProps } from '../Input/InputStyle';
+import InputStyle, { InputStyleProps } from '../Input/InputStyle';
 
-export type TTextAreaProps = Pick<
-  TInputStyleProps,
+export type TextAreaProps = Pick<
+  InputStyleProps,
   'error' | 'errorMessage' | 'label' | 'containerClassName' | 'id'
 > &
   React.TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -19,7 +19,7 @@ const TextArea = React.forwardRef(
       id,
       className,
       ...props
-    }: TTextAreaProps,
+    }: TextAreaProps,
     ref: React.Ref<HTMLTextAreaElement>
   ) => {
     return (

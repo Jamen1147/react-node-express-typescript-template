@@ -3,7 +3,7 @@ import cx from 'classnames';
 import styles from './Button.module.scss';
 import { Loader } from '../Loader';
 
-export type TButtonProps = {
+export type ButtonProps = {
   block?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -16,7 +16,7 @@ export type TButtonProps = {
   'type' | 'className' | 'onClick'
 >;
 
-const Button: React.FC<TButtonProps> = ({
+const Button = ({
   block,
   disabled,
   loading,
@@ -28,7 +28,7 @@ const Button: React.FC<TButtonProps> = ({
   onClick,
   children,
   className,
-}) => {
+}: React.PropsWithChildren<ButtonProps>) => {
   return (
     <button
       className={cx(

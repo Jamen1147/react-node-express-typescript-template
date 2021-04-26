@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { ReactComponent as Icon } from '@template/common/icons/alarm.svg';
-import Input, { TInputProps } from './Input';
+import Input, { InputProps } from './Input';
 
 const story: Meta = {
   title: 'Input',
@@ -21,9 +21,9 @@ const story: Meta = {
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: Story<TInputProps> = (props) => <Input {...props} />;
+const Template: Story<InputProps> = (props) => <Input {...props} />;
 
-const props: TInputProps = {
+const props: InputProps = {
   label: 'Input Field',
   placeholder: 'Please enter some value',
 };

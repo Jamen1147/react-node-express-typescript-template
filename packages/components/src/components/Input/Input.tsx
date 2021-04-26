@@ -1,7 +1,7 @@
 import React from 'react';
-import InputStyle, { TInputStyleProps } from './InputStyle';
+import InputStyle, { InputStyleProps } from './InputStyle';
 
-export type TInputProps = TInputStyleProps &
+export type InputProps = InputStyleProps &
   React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef(
@@ -17,7 +17,7 @@ const Input = React.forwardRef(
       className,
       containerClassName,
       ...props
-    }: TInputProps,
+    }: InputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     return (

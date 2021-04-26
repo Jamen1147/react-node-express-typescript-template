@@ -6,7 +6,7 @@ import { Loader } from '../Loader';
 
 import styles from './InputStyle.module.scss';
 
-export type TInputStyleProps = {
+export type InputStyleProps = {
   error?: boolean;
   errorMessage?: string;
   label?: string;
@@ -17,7 +17,7 @@ export type TInputStyleProps = {
   containerClassName?: string;
 };
 
-const InputStyle: React.FC<TInputStyleProps> = ({
+const InputStyle: React.FC<InputStyleProps> = ({
   error,
   errorMessage = 'Please fill out this field',
   label,

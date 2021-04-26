@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import styles from './Loader.module.scss';
 
-export type TLoaderProps = {
+export type LoaderProps = {
   size?: 'large' | 'medium' | 'small' | 'xsmall';
   color?: 'primary' | 'secondary' | 'inverted';
   className?: string;
@@ -12,7 +12,7 @@ const Loader = ({
   size = 'medium',
   color = 'primary',
   className,
-}: TLoaderProps) => (
+}: LoaderProps) => (
   <div className={cx(styles.loader, className)}>
     <div
       className={cx(

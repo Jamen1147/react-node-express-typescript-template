@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
-import TextArea, { TTextAreaProps } from './TextArea';
+import TextArea, { TextAreaProps } from './TextArea';
 
 const story: Meta = {
   title: 'TextArea',
@@ -14,9 +14,9 @@ const story: Meta = {
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: Story<TTextAreaProps> = (props) => <TextArea {...props} />;
+const Template: Story<TextAreaProps> = (props) => <TextArea {...props} />;
 
-const props: TTextAreaProps = {
+const props: TextAreaProps = {
   label: 'Text Area',
 };
 

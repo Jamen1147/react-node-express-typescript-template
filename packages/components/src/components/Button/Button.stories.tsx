@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { ReactComponent as Icon } from '@template/common/icons/alarm.svg';
-import Button, { TButtonProps } from './Button';
+import Button, { ButtonProps } from './Button';
 
-const story: Meta<TButtonProps> = {
+const story: Meta<ButtonProps> = {
   title: 'Button',
   component: Button,
   argTypes: {
@@ -13,16 +13,16 @@ const story: Meta<TButtonProps> = {
     /**
      * onClick inherited from HTMLElement won't get picked up by storybook at the current version
      * so need to put it on the argTypes so that the global parameters can acutally do something on it.
-     * or change the TButtonProps to make onClick actually there instead of picking from another type.
+     * or change the ButtonProps to make onClick actually there instead of picking from another type.
      */
     onClick: { defaultValue: null },
   },
 };
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: Story<TButtonProps> = (props) => <Button {...props} />;
+const Template: Story<ButtonProps> = (props) => <Button {...props} />;
 
-const props: React.PropsWithChildren<TButtonProps> = {
+const props: React.PropsWithChildren<ButtonProps> = {
   children: 'Button',
 };
 
