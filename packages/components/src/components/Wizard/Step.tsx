@@ -4,18 +4,19 @@ import { UseFormReturn } from 'react-hook-form';
 export type RenderProps<T> = (formState: UseFormReturn<T>) => JSX.Element;
 
 export type WizardStepProps<T> = {
-  formState: UseFormReturn<T>;
   children: RenderProps<T> | React.ReactNode;
 };
 
 const WizardStep = <T extends Record<string, any>>({
-  children,
+  // @ts-ignore, this formState prop coming from wizard container,
+  // and should not expect consumer to pass this prop
   formState,
-}: React.PropsWithChildren<WizardStepProps<T>>) => {
+  children,
+}: WizardStepProps<T>) => {
   if (typeof children === 'function' && formState) {
-    return (children as RenderProps<T>)(formState);
+    return (children as RenderProps<T>)(formState) as JSX.Element;
   }
-  return children;
+  return children as React.ReactElement;
 };
 
 WizardStep.displayName = 'WizardStep';
