@@ -1,9 +1,9 @@
 import { Children, isValidElement, ReactElement } from 'react';
 
-export const mapChildren = <P = any>(
+export const mapChildren = <P = any, R = any>(
   children: any,
-  func: (el: ReactElement<P>, index: number) => any
-) => {
+  func: (el: ReactElement<P>, index: number) => R
+): Array<R> => {
   let index = 0;
 
   return Children.map(children, (child) =>
