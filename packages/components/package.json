@@ -29,7 +29,8 @@
   "dependencies": {
     "@template/common": "0.1.0",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "react-hook-form": "^7.3.3"
   },
   "scripts": {
     "test": "react-scripts test  --watchAll=false --passWithNoTests",
