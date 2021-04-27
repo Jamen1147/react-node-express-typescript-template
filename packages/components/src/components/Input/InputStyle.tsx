@@ -44,6 +44,7 @@ const InputStyle: React.FC<InputStyleProps> = ({
           error && styles.error,
           !outline && styles.grey
         )}
+        data-testid="input_container"
       >
         {icon &&
           React.cloneElement(icon, {
