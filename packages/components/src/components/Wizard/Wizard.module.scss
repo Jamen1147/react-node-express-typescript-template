@@ -1,5 +1,12 @@
+@use '@template/common/styles/variables.scss' as v;
+@use '@template/common/styles/mixins.scss' as m;
+
 .form {
-  .steps {
-    font-size: inherit;
+  .controls {
+    border-top: 1px solid v.$color-lightgrey;
+    display: flex;
+    justify-content: space-between;
+    margin-top: m.rem(25px);
+    padding-top: m.rem(25px);
   }
 }

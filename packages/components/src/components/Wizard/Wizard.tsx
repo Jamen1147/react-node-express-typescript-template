@@ -1,5 +1,6 @@
 import { mapChildren, useSteps } from '@template/common';
 import React from 'react';
+import cx from 'classnames';
 import {
   useForm,
   UnpackNestedValue,
@@ -15,12 +16,24 @@ export type WizardProps<T> = {
   onSubmit: SubmitHandler<T>;
   formProps?: UseFormProps<T>;
   initialStep?: number;
+  prevButton?: React.ReactNode;
+  nextButton?: React.ReactNode;
+  submitButton?: React.ReactNode;
+  formClassName?: string;
+  stepsClassName?: string;
+  controlsClassName?: string;
 };
 
 const Wizard = <T extends Record<string, unknown>>({
   onSubmit,
   formProps,
   initialStep = 0,
+  prevButton = 'Prev',
+  nextButton = 'Next',
+  submitButton = 'Submit',
+  formClassName,
+  stepsClassName,
+  controlsClassName,
   children,
 }: React.PropsWithChildren<WizardProps<T>>) => {
   const allWizardSteps = mapChildren(children, (child) => {
@@ -42,7 +55,7 @@ const Wizard = <T extends Record<string, unknown>>({
 
   const {
     handleSubmit,
-    formState: { isSubmitting, isValid },
+    formState: { isSubmitting, errors },
   } = formState;
 
   const handleFormSubmit = (
@@ -62,8 +75,11 @@ const Wizard = <T extends Record<string, unknown>>({
 
   return (
     <WizardContextProvider value={formState}>
-      <form onSubmit={handleSubmit<T>(handleFormSubmit)}>
-        <div className={styles.steps}>
+      <form
+        onSubmit={handleSubmit<T>(handleFormSubmit)}
+        className={cx(styles.form, formClassName)}
+      >
+        <div className={cx(styles.steps, stepsClassName)}>
           {currentStepElement && (
             <currentStepElement.type
               {...currentStepElement.props}
@@ -72,22 +88,22 @@ const Wizard = <T extends Record<string, unknown>>({
           )}
         </div>
 
-        <div className={styles.controls}>
+        <div className={cx(styles.controls, controlsClassName)}>
           <Button
             size="small"
             type="button"
             disabled={isFirstStep}
             onClick={prevStep}
           >
-            Prev
+            {prevButton}
           </Button>
           <Button
             size="small"
             type="submit"
             loading={isSubmitting}
-            disabled={!isValid || isSubmitting}
+            disabled={!!Object.keys(errors).length || isSubmitting}
           >
-            {isLastStep ? 'Submit' : 'Next'}
+            {isLastStep ? submitButton : nextButton}
           </Button>
         </div>
       </form>
