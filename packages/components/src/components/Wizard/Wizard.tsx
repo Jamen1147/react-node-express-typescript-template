@@ -7,6 +7,7 @@ import {
   SubmitHandler,
 } from 'react-hook-form';
 import { Button } from '../Button';
+import { WizardContextProvider } from './context';
 import WizardStep from './Step';
 import styles from './Wizard.module.scss';
 
@@ -60,35 +61,37 @@ const Wizard = <T extends Record<string, unknown>>({
   // TODO: Add styles
 
   return (
-    <form onSubmit={handleSubmit<T>(handleFormSubmit)}>
-      <div className={styles.steps}>
-        {currentStepElement && (
-          <currentStepElement.type
-            {...currentStepElement.props}
-            formState={formState}
-          />
-        )}
-      </div>
+    <WizardContextProvider value={formState}>
+      <form onSubmit={handleSubmit<T>(handleFormSubmit)}>
+        <div className={styles.steps}>
+          {currentStepElement && (
+            <currentStepElement.type
+              {...currentStepElement.props}
+              formState={formState}
+            />
+          )}
+        </div>
 
-      <div className={styles.controls}>
-        <Button
-          size="small"
-          type="button"
-          disabled={isFirstStep}
-          onClick={prevStep}
-        >
-          Prev
-        </Button>
-        <Button
-          size="small"
-          type="submit"
-          loading={isSubmitting}
-          disabled={!isValid || isSubmitting}
-        >
-          {isLastStep ? 'Submit' : 'Next'}
-        </Button>
-      </div>
-    </form>
+        <div className={styles.controls}>
+          <Button
+            size="small"
+            type="button"
+            disabled={isFirstStep}
+            onClick={prevStep}
+          >
+            Prev
+          </Button>
+          <Button
+            size="small"
+            type="submit"
+            loading={isSubmitting}
+            disabled={!isValid || isSubmitting}
+          >
+            {isLastStep ? 'Submit' : 'Next'}
+          </Button>
+        </div>
+      </form>
+    </WizardContextProvider>
   );
 };
 
