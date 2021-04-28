@@ -1,0 +1,51 @@
+@use '@template/common/styles/variables.scss' as v;
+@use '@template/common/styles/mixins.scss' as m;
+
+.overlay {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  opacity: 1;
+  outline: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+
+  .modal {
+    background-color: white;
+    border: 0;
+    border-radius: m.rem(4px);
+    bottom: auto;
+    box-shadow: 0 m.rem(2px) m.rem(25px) rgba(34, 34, 34, 0.15);
+    max-height: calc(100vh - #{m.rem(100px)});
+    max-width: calc(100vw - #{m.rem(600px)});
+    outline: 0;
+    overflow-y: auto;
+  }
+}
+
+.component {
+  align-items: center;
+  display: flex;
+  height: m.rem(60px);
+  padding: 0 m.rem(20px);
+}
+
+.header {
+  background-color: v.$color-grey;
+  composes: component;
+}
+
+.body {
+  padding: m.rem(20px);
+}
+
+.footer {
+  border-top: 1px solid v.$color-lightgrey;
+  composes: component;
+}
