@@ -5,15 +5,20 @@ import crypt from 'bcryptjs';
 export type TokenPayload = {
   user: {
     id: string;
+    revision: number;
   };
 };
 
 export default class AuthHelper {
-  static async sign(payload: TokenPayload, expiresIn = config.jwt.expiredIn) {
+  static async sign(
+    payload: TokenPayload,
+    secret = config.jwt.secret,
+    expiresIn = config.jwt.expiredIn
+  ) {
     const token = await new Promise<string>((resolve, reject) => {
       jwt.sign(
         payload,
-        config.jwt.secret,
+        secret,
         { expiresIn, issuer: config.jwt.issuer },
         (err, token) => {
           if (err) reject(err);
@@ -38,7 +43,7 @@ export default class AuthHelper {
     return await crypt.compare(password, hashed);
   }
 
-  static verify(token: string) {
-    return jwt.verify(token, config.jwt.secret) as TokenPayload;
+  static verify(token: string, secret = config.jwt.secret) {
+    return jwt.verify(token, secret) as TokenPayload;
   }
 }

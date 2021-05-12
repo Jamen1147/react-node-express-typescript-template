@@ -4,12 +4,16 @@
   },
   "db": {
     "user": "root",
-    "password": "your pass word",
-    "db": "db"
+    "password": "pw",
+    "db": "template"
   },
   "jwt": {
     "secret": "secret",
-    "expiredIn": "1h",
-    "issuer": "fullstack-template.com"
+    "expiredIn": "30m",
+    "issuer": "fullstack-template.com",
+    "refresh": {
+      "secret": "refreshsecret",
+      "expiredIn": "1d"
+    }
   }
 }

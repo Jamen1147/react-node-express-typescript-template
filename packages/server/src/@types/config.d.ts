@@ -13,6 +13,10 @@ interface IExtendedConfig {
     secret: string;
     expiredIn: number;
     issuer: string;
+    refresh: {
+      secret: string;
+      expiredIn: number;
+    };
   };
   cors?: {
     allow: string | string[];

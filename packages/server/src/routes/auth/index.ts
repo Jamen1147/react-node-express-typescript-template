@@ -1,7 +1,8 @@
+import { LoginParams } from '@template/common';
 import { Router, Request } from 'express';
+import { COOKIE } from '../../constants/cookie';
 import authorize from '../../middlewares/authorize';
 import services from '../../services';
-import { TLoginParams } from '../../services/auth';
 import { loginValidations } from './validations';
 
 const router = Router();
@@ -17,21 +18,36 @@ const router = Router();
 router.post(
   '/login',
   ...loginValidations,
-  (req: Request<any, any, TLoginParams>, res, next) => {
+  (req: Request<any, any, LoginParams>, res, next) => {
     const { email, password } = req.body;
     services.auth
       .login({ email, password })
-      .then(({ user, token }) => {
-        res.setCookie('token', token);
-        return res.success(user);
+      .then(({ user, token, refreshToken }) => {
+        res.setCookie(COOKIE.TOKEN, token);
+        res.setCookie(COOKIE.REFRESH_TOKEN, refreshToken);
+        return user;
       })
+      .then(res.success)
       .catch(next);
   }
 );
 
-router.post('/logout', authorize, (req, res) => {
-  res.clearCookie('token');
-  return res.success(true);
+router.post('/logout', authorize, (req, res, next) => {
+  res.clearCookie(COOKIE.TOKEN);
+  res.clearCookie(COOKIE.REFRESH_TOKEN);
+  services.auth.revokeToken(req.user.id).then(res.success).catch(next);
+});
+
+router.get('/refresh', (req, res, next) => {
+  services.auth
+    .refreshToken(req.cookies[COOKIE.REFRESH_TOKEN])
+    .then(({ newToken, newRefreshToken }) => {
+      res.setCookie(COOKIE.TOKEN, newToken);
+      res.setCookie(COOKIE.REFRESH_TOKEN, newRefreshToken);
+      return true;
+    })
+    .then(res.success)
+    .catch(next);
 });
 
 export default router;

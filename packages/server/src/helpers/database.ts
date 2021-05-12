@@ -12,6 +12,7 @@ export default class Database {
           transform: (_: any, ret: any) => {
             delete ret._id;
             ret.password && delete ret.password;
+            ret.tokenRevision && delete ret.tokenRevision;
           },
         },
       }

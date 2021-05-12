@@ -3,14 +3,18 @@
     "port": 5000
   },
   "db": {
-    "user": "jamen-root",
-    "password": "",
+    "user": "root",
+    "password": "pw",
     "db": "template"
   },
   "jwt": {
     "secret": "secret",
-    "expiredIn": "1h",
-    "issuer": "fullstack-template.com"
+    "expiredIn": "30m",
+    "issuer": "fullstack-template.com",
+    "refresh": {
+      "secret": "refreshsecret",
+      "expiredIn": "1d"
+    }
   },
   "cors": {
     "allow": []
