@@ -15,7 +15,7 @@ type RouteTypes = 'unauthenticated' | 'normal';
 
 const routes: Record<RouteTypes, JSX.Element[]> = {
   unauthenticated: [
-    <Route key="/login" path="/login" component={Login} />,
+    <Route key="/" path="/" component={Login} />,
     <Route key="/register" path="/register" component={Register} />,
   ],
   normal: [<Route key="/" path="/" component={Home} />],
