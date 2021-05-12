@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
-import { requestInterceptor } from './interceptors';
+import { refreshAuthToken, axiosConfig } from './interceptors';
 import env from '../../env';
 import Response from './response';
 
@@ -29,7 +29,11 @@ export default abstract class BaseApi {
       baseURL: env.baseUrl + basePath,
     });
 
-    this.api.interceptors.request.use(...requestInterceptor);
+    this.api.interceptors.request.use(axiosConfig, Promise.reject);
+    this.api.interceptors.response.use(
+      (response) => response,
+      (error) => refreshAuthToken(this.api, error)
+    );
 
     methods.forEach((method) => {
       this[method] = this.request.bind(this, method) as Request;
