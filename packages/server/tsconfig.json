@@ -6,7 +6,7 @@
     "sourceMap": false,
     "outDir": "./build",
     "rootDirs": ["./src", "./tests"],
-    "types": ["node", "mocha"],
+    "types": ["node", "jest"],
     "moduleResolution": "node",
     "removeComments": true,
     "strict": true,
