@@ -11,11 +11,11 @@ interface IExtendedConfig {
   };
   jwt: {
     secret: string;
-    expiredIn: number;
+    expiresIn: string;
     issuer: string;
     refresh: {
       secret: string;
-      expiredIn: number;
+      expiresIn: string;
     };
   };
   cors?: {
