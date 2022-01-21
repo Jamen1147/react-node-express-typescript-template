@@ -1,7 +1,7 @@
-export class HttpError {
+class HttpError {
   static StatusCode: Record<string, number> = {
     BadRequest: 400,
-    Unthorized: 401,
+    Unauthorized: 401,
     Forbidden: 403,
     NotFound: 404,
     Conflict: 409,
@@ -18,8 +18,10 @@ export class HttpError {
   }
 }
 
+export default HttpError;
+
 export class BadRequest extends HttpError {}
-export class Unthorized extends HttpError {}
+export class Unauthorized extends HttpError {}
 export class Forbidden extends HttpError {}
 export class NotFound extends HttpError {}
 export class Conflict extends HttpError {}

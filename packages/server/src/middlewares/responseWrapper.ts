@@ -1,5 +1,5 @@
 import { Response, NextFunction, CookieOptions } from 'express';
-import { env } from '../helpers/env';
+import env from '../helpers/env';
 
 export type ApiResponse<T, E> = {
   ok: boolean;

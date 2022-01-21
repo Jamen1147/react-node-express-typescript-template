@@ -1,9 +1,13 @@
-type NodeEnv = 'development' | 'testing' | 'staging' | 'production' | undefined;
+type NodeEnv = 'development' | 'testing' | 'production';
 
 type EnvVar = {
-  current: NodeEnv;
+  current?: NodeEnv;
+  port?: number;
 };
 
-export const env: EnvVar = {
+const env: EnvVar = {
   current: process.env.NODE_ENV as NodeEnv,
+  port: Number(process.env.PORT),
 };
+
+export default env;

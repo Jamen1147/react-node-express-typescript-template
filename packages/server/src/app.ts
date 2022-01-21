@@ -11,10 +11,8 @@ import Database from './helpers/database';
 import { NotFound } from './helpers/httpError';
 
 import userRouter from './routes/user';
-import valueRouter from './routes/value';
-import weatherRouter from './routes/waether';
 import authRouter from './routes/auth';
-import { env } from './helpers/env';
+import env from './helpers/env';
 
 const app = express();
 
@@ -35,8 +33,6 @@ app.use(responseWrapper);
 app.use('/swagger', ...swaggerSetups);
 
 // Routes
-app.use('/api/v1/value', valueRouter);
-app.use('/api/v1/weather', weatherRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/auth', authRouter);
 
@@ -48,7 +44,7 @@ app.use(errorHandler);
 // Connect to DB and start listening
 Database.connect()
   .then(() => {
-    const port = process.env.PORT || config.server.port;
+    const port = env.port || config.server.port;
     app.listen(port, () => {
       console.log('  App is running at port %d in %s mode', port, env.current);
     });

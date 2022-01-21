@@ -1,6 +1,6 @@
 import { Response } from 'express';
-import { env } from '../helpers/env';
-import { HttpError } from '../helpers/httpError';
+import env from '../helpers/env';
+import HttpError from '../helpers/httpError';
 
 const errorHandler = (
   error: HttpError | Error,

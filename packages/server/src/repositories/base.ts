@@ -1,4 +1,4 @@
-import { Model, Document, FilterQuery, DocumentDefinition } from 'mongoose';
+import { Document, DocumentDefinition, FilterQuery, Model } from 'mongoose';
 
 export default abstract class BaseRepository<T extends Document> {
   private readonly model: Model<T>;
@@ -15,7 +15,7 @@ export default abstract class BaseRepository<T extends Document> {
     return result;
   }
 
-  async find(id: string) {
+  async findById(id: string) {
     return await this.model.findById(id);
   }
 
@@ -28,6 +28,6 @@ export default abstract class BaseRepository<T extends Document> {
   }
 
   async delete(id: string) {
-    return await this.model.findByIdAndRemove(id);
+    return await this.model.findByIdAndDelete(id);
   }
 }
