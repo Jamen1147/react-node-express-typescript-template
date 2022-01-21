@@ -9,11 +9,11 @@
   },
   "jwt": {
     "secret": "secret",
-    "expiredIn": "30m",
+    "expiresIn": "30m",
     "issuer": "fullstack-template.com",
     "refresh": {
       "secret": "refreshsecret",
-      "expiredIn": "1d"
+      "expiresIn": "1d"
     }
   },
   "cors": {
